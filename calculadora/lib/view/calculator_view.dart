@@ -1,3 +1,4 @@
+import 'package:calculadora/controller/calculator_controller.dart';
 import 'package:calculadora/model/calculator_model.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,13 @@ class CalculatorView extends StatefulWidget {
 
 class _CalculatorViewState extends State<CalculatorView> {
   CalculatorModel model = CalculatorModel();
+  late CalculatorController controller;
+  @override
+  void initState() {
+  super.initState();
+  controller = CalculatorController(model);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +126,8 @@ class _CalculatorViewState extends State<CalculatorView> {
   }
 
   void _buttonPressed(String buttonText) {
-  
+    setState(() {
+      controller.buttonPressed(buttonText);
+    });
   }
 }

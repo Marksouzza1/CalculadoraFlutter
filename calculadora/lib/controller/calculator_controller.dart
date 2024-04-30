@@ -45,7 +45,7 @@ class CalculatorController {
       model.output += buttonText;
       break;
   }
-  
+   
   }
 
   void _calculateResult() {
